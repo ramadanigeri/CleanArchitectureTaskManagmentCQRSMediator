@@ -10,7 +10,6 @@
     <Folder Include="Common\Behaviours\" />
     <Folder Include="Common\Exceptions\" />
     <Folder Include="MyTasks\Commands\DeleteTask\" />
-    <Folder Include="MyTasks\Commands\UpdateTask\" />
   </ItemGroup>
 
   <ItemGroup>
