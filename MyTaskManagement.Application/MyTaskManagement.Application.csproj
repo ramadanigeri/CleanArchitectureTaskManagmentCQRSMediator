@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Behaviours\" />
+    <Folder Include="MyTasks\Commands\CreateTask\" />
+    <Folder Include="MyTasks\Commands\DeleteTask\" />
+    <Folder Include="MyTasks\Commands\UpdateTask\" />
+    <Folder Include="MyTasks\Queries\GetTasks\" />
+    <Folder Include="MyTasks\Queries\GetTasksById\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyTaskManagement.Domain\MyTaskManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
