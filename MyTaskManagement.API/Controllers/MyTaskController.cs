@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyTaskManagement.Application.MyTasks.Commands.CreateTask;
 using MyTaskManagement.Application.MyTasks.Queries.GetTasks;
 using MyTaskManagement.Application.MyTasks.Queries.GetTasksById;
 using MyTaskManagement.Domain.Entity;
@@ -26,6 +27,13 @@ namespace MyTaskManagement.API.Controllers
                 return NotFound();
             }
             return Ok(myTask);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateMyTask(CreateTaskCommand command)
+        {
+            var createTask = await Mediator.Send(command);
+            return CreatedAtAction(nameof(GetTaskById), new {id = createTask.Id}, createTask);
         }
     }
 }
