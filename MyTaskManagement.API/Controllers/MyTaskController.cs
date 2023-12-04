@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyTaskManagement.Application.MyTasks.Commands.CreateTask;
+using MyTaskManagement.Application.MyTasks.Commands.DeleteTask;
+using MyTaskManagement.Application.MyTasks.Commands.UpdateTask;
 using MyTaskManagement.Application.MyTasks.Queries.GetTasks;
 using MyTaskManagement.Application.MyTasks.Queries.GetTasksById;
 using MyTaskManagement.Domain.Entity;
@@ -34,6 +36,28 @@ namespace MyTaskManagement.API.Controllers
         {
             var createTask = await Mediator.Send(command);
             return CreatedAtAction(nameof(GetTaskById), new {id = createTask.Id}, createTask);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTask(int id, UpdateMyTaskCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+            await Mediator.Send(command);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            var result = await Mediator.Send(new DeleteMyTaskCommand { Id = id});
+            if(result ==0)
+            {
+                return BadRequest();
+            }
+            return NoContent();
         }
     }
 }
