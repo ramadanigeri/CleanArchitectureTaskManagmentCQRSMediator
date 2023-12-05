@@ -48,7 +48,6 @@ namespace MyTaskManagement.Infrastructure.Repository
             return await _myTaskDbContext.MyTasks
                 .Where(model => model.Id == id)
                 .ExecuteUpdateAsync(setters => setters
-                    .SetProperty(m => m.Id, id)
                     .SetProperty(m => m.Name, myTask.Name)
                     .SetProperty(m => m.Description, myTask.Description)
                     .SetProperty(m => m.Category, myTask.Category)

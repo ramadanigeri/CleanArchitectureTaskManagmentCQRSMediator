@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyTaskManagement.Application.MyTasks.Commands.CreateTask;
 using MyTaskManagement.Application.MyTasks.Commands.DeleteTask;
 using MyTaskManagement.Application.MyTasks.Commands.UpdateTask;
 using MyTaskManagement.Application.MyTasks.Queries.GetTasks;
 using MyTaskManagement.Application.MyTasks.Queries.GetTasksById;
-using MyTaskManagement.Domain.Entity;
 
 namespace MyTaskManagement.API.Controllers
 {

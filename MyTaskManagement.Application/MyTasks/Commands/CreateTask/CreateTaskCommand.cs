@@ -14,5 +14,6 @@ namespace MyTaskManagement.Application.MyTasks.Commands.CreateTask
         public string? Description { get; set; }
         public string? Category { get; set; }
         public string? CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }
