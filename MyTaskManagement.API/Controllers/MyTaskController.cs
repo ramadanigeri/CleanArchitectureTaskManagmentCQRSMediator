@@ -39,12 +39,12 @@ namespace MyTaskManagement.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTask(int id, UpdateMyTaskCommand command)
         {
-            if (id != command.Id)
+            if (id == command.Id)
             {
-                return BadRequest();
+                await Mediator.Send(command);
+                return NoContent();
             }
-            await Mediator.Send(command);
-            return NoContent();
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
